@@ -25,7 +25,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = config("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['24.199.86.26', 'beau.guru', 'beaumcd.com']
+ALLOWED_HOSTS = ['beau.guru', 'beaumcd.com']
 # auth model
 AUTH_USER_MODEL = 'blog.CustomUser'
 
@@ -49,23 +49,26 @@ INSTALLED_APPS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # Replace with your Next.js application's URL
-    'http://localhost:8000',  # Replace with your Next.js application's URL
-    'http://localhost:8080',  # Replace with your Next.js application's URL
+    'https://localhost:3000',
+    'https://localhost:8000',
+    'https://localhost:8080',
     'https://beaumcd.com',
     'https://beau.guru',
-    'http://localhost:8000'
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    'http://localhost:8000',
-    'http://localhost:8080',
+    'https://localhost:3000',
+    'https://localhost:8000',
+    'https://localhost:8080',
     'https://beaumcd.com',
     'https://beau.guru',
-    'http://localhost:8000'
-    # Add other allowed origins if needed
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://beau.guru',
+    'https://beaumcd.com',
+]
+
 
 CSRF_COOKIE_NAME = "csrftoken" # The name of the cookie to store the CSRF token
 CSRF_HEADER_NAME = "HTTP_X_CSRFTOKEN" # The name of the header to expect the CSRF token
