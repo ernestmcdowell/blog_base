@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+from django.core.management.utils import get_random_secret_key
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,14 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ub(6wnv4r_x33nn@6!v7(0oz9+bbfod5tbubv!hq0pxmdij1-#'
-
+SECRET_KEY = config("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+ALLOWED_HOSTS = ['24.199.86.26', 'beaumcd.com']
 # auth model
 AUTH_USER_MODEL = 'blog.CustomUser'
-ALLOWED_HOSTS = []
 
 APPEND_SLASH = False
 # Application definition
@@ -59,17 +58,13 @@ CSRF_HEADER_NAME = "HTTP_X_CSRFTOKEN" # The name of the header to expect the CSR
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_METHODS = [
-    'DELETE',
     'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
+
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 12
 }
 
 MIDDLEWARE = [
