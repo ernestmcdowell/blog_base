@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['24.199.86.26', ]
+ALLOWED_HOSTS = ['24.199.86.26',]
 # auth model
 AUTH_USER_MODEL = 'blog.CustomUser'
 
@@ -166,3 +166,22 @@ MEDIA_URL = 'media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'server.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
