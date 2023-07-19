@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['24.199.86.26', 'beaumcd.com']
+ALLOWED_HOSTS = ['24.199.86.26', ]
 # auth model
 AUTH_USER_MODEL = 'blog.CustomUser'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 APPEND_SLASH = False
 # Application definition
@@ -47,14 +51,16 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Replace with your Next.js application's URL
     'http://localhost:8000',  # Replace with your Next.js application's URL
     'http://localhost:8080',  # Replace with your Next.js application's URL
-    'https://portfolioapp-mck9y.ondigitalocean.app/'
+    'https://portfolioapp-mck9y.ondigitalocean.app/',
+    'beaumcd.com',
 ]
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080',
-    'https://portfolioapp-mck9y.ondigitalocean.app/'
+    'https://portfolioapp-mck9y.ondigitalocean.app/',
+    'beaumcd.com',
     # Add other allowed origins if needed
 ]
 
