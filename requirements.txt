@@ -1,0 +1,4 @@
+Django==4.2.3
+djangorestframework==3.14.0
+djangorestframework_simplejwt==5.2.2
+python-decouple==3.8
