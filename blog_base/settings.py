@@ -47,12 +47,14 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Replace with your Next.js application's URL
     'http://localhost:8000',  # Replace with your Next.js application's URL
     'http://localhost:8080',  # Replace with your Next.js application's URL
+    'https://portfolioapp-mck9y.ondigitalocean.app/'
 ]
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080',
+    'https://portfolioapp-mck9y.ondigitalocean.app/'
     # Add other allowed origins if needed
 ]
 
