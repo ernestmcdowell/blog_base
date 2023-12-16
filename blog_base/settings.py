@@ -25,7 +25,7 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = config("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['beau.guru', 'beaumcd.com']
+ALLOWED_HOSTS = ['']
 # auth model
 AUTH_USER_MODEL = 'blog.CustomUser'
 
